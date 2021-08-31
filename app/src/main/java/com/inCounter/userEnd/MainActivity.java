@@ -2,6 +2,7 @@ package com.inCounter.userEnd;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     String name;
     int hp;
-    int initiative;
+    double initiative;
 
     Configuration configuration;
     Communicator communicator;
@@ -32,12 +33,22 @@ public class MainActivity extends AppCompatActivity {
     public MainActivity(){
         configuration = new Configuration("192.168.178.52", 8080, "userEnd", "getId", "OK", "setName", "setInitiative", "changeHP");
         communicator = new Communicator(configuration);
+        System.out.println("new instanca");
+        System.out.println("new instanca");
+        System.out.println("new instanca");
+        System.out.println("new instance");
+        System.out.println("new instance");
+        System.out.println("new instance");
+        System.out.println("new instance");
+        System.out.println("new instance");
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         /**
          *Initializing GUI items
@@ -71,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 try {
-                    initiative = Integer.parseInt(txt_initiative.getText().toString());
+                    initiative = Double.parseDouble(txt_initiative.getText().toString());  //Integer.parseInt(txt_initiative.getText().toString());
                 } catch (NumberFormatException e) {
                     initiative = 0;
                 }
-                communicator.sendMessage(configuration.getSetInitiative(), Integer.toString(initiative));
-                System.out.println("Initiative set to: " + Integer.toString(initiative));
+                communicator.sendMessage(configuration.getSetInitiative(), Double.toString(initiative));
+                System.out.println("Initiative set to: " + Double.toString(initiative));
             }
         });
 
