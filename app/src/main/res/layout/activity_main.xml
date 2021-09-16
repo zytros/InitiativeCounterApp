@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,6 +11,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="-1"
+            app:backgroundTint="#575757"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_charName" />
 
@@ -41,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+1"
+            app:backgroundTint="#575757"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/cmd_nOne" />
 
@@ -74,13 +76,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
             android:text="Set Initiative"
+            app:backgroundTint="#575757"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cmd_nTen" />
 
         <EditText
             android:id="@+id/txt_initiative"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="205dp"
+            android:layout_height="48dp"
+            android:background="#4D9F9F9F"
             android:ems="10"
             android:inputType="none|numberDecimal"
             app:layout_constraintStart_toEndOf="@+id/cmd_setInitiative"
@@ -91,6 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-10"
+            app:backgroundTint="#575757"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cmd_nOne" />
 
@@ -99,6 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+10"
+            app:backgroundTint="#575757"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cmd_pOne" />
 
@@ -108,8 +114,216 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="Set Name"
+            android:textColor="#000000"
+            app:backgroundTint="#575757"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/firstGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cmd_setInitiative">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/rg_zero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/rb_artificer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupZero"
+                        android:text="Artificer" />
+
+                    <RadioButton
+                        android:id="@+id/rb_cleric"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupZero"
+                        android:text="Cleric" />
+
+                    <RadioButton
+                        android:id="@+id/rb_paladin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupZero"
+                        android:text="Paladin" />
+
+                    <RadioButton
+                        android:id="@+id/rb_placeholder1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupZero"
+                        android:text="RadioButton"
+                        android:visibility="invisible" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/rg_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/rb_barbarian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupOne"
+                        android:text="Barbarian" />
+
+                    <RadioButton
+                        android:id="@+id/rb_druid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupOne"
+                        android:text="Druid" />
+
+                    <RadioButton
+                        android:id="@+id/rb_ranger"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupOne"
+                        android:text="Ranger" />
+
+                    <RadioButton
+                        android:id="@+id/rb_warlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupOne"
+                        android:text="Warlock" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/rg_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/rb_bard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupTwo"
+                        android:text="Bard" />
+
+                    <RadioButton
+                        android:id="@+id/rb_fighter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupTwo"
+                        android:text="Fighter" />
+
+                    <RadioButton
+                        android:id="@+id/rb_rogue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupTwo"
+                        android:text="Rogue" />
+
+                    <RadioButton
+                        android:id="@+id/rb_wizard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupTwo"
+                        android:text="Wizard" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/rg_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/rb_bloodhunter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupThree"
+                        android:text="Blood Hunter" />
+
+                    <RadioButton
+                        android:id="@+id/rb_monk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupThree"
+                        android:text="Monk" />
+
+                    <RadioButton
+                        android:id="@+id/rb_sorcerer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupThree"
+                        android:text="Sorcerer" />
+
+                    <RadioButton
+                        android:id="@+id/rb_placeholder2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="groupThree"
+                        android:text="RadioButton"
+                        android:visibility="invisible" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

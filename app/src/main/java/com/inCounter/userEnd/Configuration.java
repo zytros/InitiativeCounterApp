@@ -9,8 +9,9 @@ public class Configuration {
     private String setName;
     private String setInitiative;
     private String changeHP;
+    private String changeClass;
 
-    public Configuration(String host, int port, String userEnd, String getId, String posResponse, String setName, String setInitiative, String changeHP) {
+    public Configuration(String host, int port, String userEnd, String getId, String posResponse, String setName, String setInitiative, String changeHP, String changeClass) {
         this.host = host;
         this.port = port;
         this.userEnd = userEnd;
@@ -19,6 +20,7 @@ public class Configuration {
         this.setName = setName;
         this.setInitiative = setInitiative;
         this.changeHP = changeHP;
+        this.changeClass = changeClass;
     }
 
     public String getChangeHP() {
@@ -83,5 +85,13 @@ public class Configuration {
 
     public void setPosResponse(String posResponse) {
         this.posResponse = posResponse;
+    }
+
+    public String getChangeClass() {
+        return changeClass;
+    }
+
+    public void setChangeClass(String changeClass) {
+        this.changeClass = changeClass;
     }
 }
