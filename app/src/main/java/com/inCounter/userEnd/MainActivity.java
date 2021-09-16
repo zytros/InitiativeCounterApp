@@ -66,33 +66,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);                     //no rotation
 
-        back_images = new int[]{R.drawable.mountain, R.drawable.mountain2, R.drawable.mountain3, R.drawable.mountain4, R.drawable.mountain5, R.drawable.mountain6};
+        back_images = new int[]{R.drawable.mountain2};
 
         /**
          * Load Images in ArrayList
          */
 
-
-        for(int i = 0; i < 14; i++){
-            charImg[i].add(back_images[rnd.nextInt(6)]);
-            charImg[i].add(back_images[rnd.nextInt(6)]);
-            charImg[i].add(back_images[rnd.nextInt(6)]);
-        }
         charImg[0].add(R.drawable.mountain2);
-        /**
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         */
-
-
+        charImg[1].add(R.drawable.barb);
+        charImg[2].add(R.drawable.bard);
+        charImg[3].add(R.drawable.mountain2);
+        charImg[4].add(R.drawable.cleric);
+        charImg[5].add(R.drawable.druid);
+        charImg[6].add(R.drawable.fighter);
+        charImg[7].add(R.drawable.monk);
+        charImg[8].add(R.drawable.paladin);
+        charImg[9].add(R.drawable.rangi);
+        charImg[10].add(R.drawable.rog);
+        charImg[11].add(R.drawable.sorc);
+        charImg[12].add(R.drawable.warlock);
+        charImg[13].add(R.drawable.wizard);
 
 
 
@@ -153,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hp = hp + 10;
-                lbl_hp.setText(hp);
+                lbl_hp.setText(Integer.toString(hp));
                 communicator.sendMessage(configuration.getChangeHP(), "10");
             }
         });
@@ -162,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hp++;
-                lbl_hp.setText(hp);
+                lbl_hp.setText(Integer.toString(hp));
                 communicator.sendMessage(configuration.getChangeHP(), "1");
             }
         });
@@ -171,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hp = hp - 10;
-                lbl_hp.setText(hp);
+                lbl_hp.setText(Integer.toString(hp));
                 communicator.sendMessage(configuration.getChangeHP(), "-10");
             }
         });
@@ -180,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hp--;
-                lbl_hp.setText(hp);
+                lbl_hp.setText(Integer.toString(hp));
                 communicator.sendMessage(configuration.getChangeHP(), "-1");
             }
         });
@@ -196,106 +189,55 @@ public class MainActivity extends AppCompatActivity {
         switch (classChar){
             case "Artificer":
                 classNum = 0;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Barbarian":
                 classNum = 1;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Bard":
                 classNum = 2;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Blood Hunter":
                 classNum = 3;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Cleric":
                 classNum = 4;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Druid":
                 classNum = 5;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Fighter":
                 classNum = 6;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Monk":
                 classNum = 7;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Paladin":
                 classNum = 8;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Ranger":
                 classNum = 9;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Rogue":
                 classNum = 10;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Sorcerer":
                 classNum = 11;
                 changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Warlock":
                 classNum = 12;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             case "Wizard":
                 classNum = 13;
-                changeColor(colors[classNum]);
-                numImg = charImg[classNum].size();
-                img = charImg[classNum].get(rnd.nextInt(numImg));
-                screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
                 break;
             default:
                 screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), back_images[5]));
                 break;
         }
+        changeColor(colors[classNum]);
+        numImg = charImg[classNum].size();
+        img = charImg[classNum].get(rnd.nextInt(numImg));
+        screenView.setBackground(ContextCompat.getDrawable(getApplicationContext(), img));
     }
 
 
